@@ -11,10 +11,24 @@ twelve people waiting for the one person who never showed up.
 
 import os
 
-SENTENCE = (
-    "Nobody here can approve this, so we are twelve people in a room "
-    "waiting for the one person who didn't show up."
-)
+# Part 1 of the entry sentence — the setup: no one in the room can decide.
+PART_A1 = "Nobody here can approve this, so we are "
+
+# Part 2 of the entry sentence — the punchline: twelve people waiting
+# for the one person who never showed up.
+PART_A2 = "twelve people in a room waiting for the one person who didn't show up."
+
+def compose() -> str:
+    """Assemble the entry sentence from its two parts."""
+    return PART_A1 + PART_A2
+
+
+SENTENCE = compose()
+
+# Guard: the assembled sentence must be exactly the two parts joined,
+# 110 characters, one line — the single line that replaces the meeting.
+assert SENTENCE == PART_A1 + PART_A2, "sentence must be the joined parts"
+assert len(SENTENCE) == 110, "sentence must be exactly 110 characters"
 
 
 def main() -> None:
